@@ -1,10 +1,14 @@
 import { Component, inject } from '@angular/core';
-import { AuthService } from '../auth.service';
+import { HeaderComponent } from 'src/app/core/components/header/header.component';
+import { AuthService } from 'src/app/shared/services/auth.service';
+
 
 @Component({
+  standalone:true,
   selector: 'app-browse',
   templateUrl: './browse.component.html',
-  styleUrls: ['./browse.component.css']
+  styleUrls: ['./browse.component.css'],
+  imports:[HeaderComponent]
 })
 export class BrowseComponent {
 auth=inject(AuthService);
