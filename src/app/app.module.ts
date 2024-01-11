@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule } from '@angular/platform-browser'
+import { CommonModule } from '@angular/common'
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './pages/login/login.component';
@@ -14,13 +15,14 @@ import { BannerComponent } from './core/components/banner/banner.component';
   declarations: [
     AppComponent,
     LoginComponent,
-
-    BannerComponent
+    BannerComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    RouterOutlet
+    RouterOutlet,
+    CommonModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]
