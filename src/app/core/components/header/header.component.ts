@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -9,5 +9,6 @@ import { Component } from '@angular/core';
   imports:[CommonModule]
 })
 export class HeaderComponent {
+  @Input ({required:true}) userImg: string = '';
 navList=["Home","TV Shows","News & Popular","Browse My Language", "My List"]
 }
