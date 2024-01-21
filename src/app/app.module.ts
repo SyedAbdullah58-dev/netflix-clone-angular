@@ -15,7 +15,6 @@ import { BannerComponent } from './core/components/banner/banner.component';
   declarations: [
     AppComponent,
     LoginComponent,
-    BannerComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,5 @@
 import { Component, inject } from '@angular/core';
+import { BannerComponent } from 'src/app/core/components/banner/banner.component';
 import { HeaderComponent } from 'src/app/core/components/header/header.component';
 import { AuthService } from 'src/app/shared/services/auth.service';
 
@@ -8,7 +9,7 @@ import { AuthService } from 'src/app/shared/services/auth.service';
   selector: 'app-browse',
   templateUrl: './browse.component.html',
   styleUrls: ['./browse.component.css'],
-  imports:[HeaderComponent]
+  imports:[HeaderComponent,BannerComponent]
 })
 export class BrowseComponent {
 auth=inject(AuthService);
