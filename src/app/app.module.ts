@@ -9,12 +9,15 @@ import {RouterOutlet, Routes} from "@angular/router";
 import { BrowseComponent } from './pages/browse/browse.component';
 import { HeaderComponent } from './core/components/header/header.component';
 import { BannerComponent } from './core/components/banner/banner.component';
+import { provideHttpClient } from '@angular/common/http';
+import { MovieCarouselComponent } from './core/components/movie-carousel/movie-carousel.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
+    MovieCarouselComponent,
   ],
   imports: [
     BrowserModule,
@@ -23,7 +26,7 @@ import { BannerComponent } from './core/components/banner/banner.component';
     CommonModule,
 
   ],
-  providers: [],
+  providers: [provideHttpClient()],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
