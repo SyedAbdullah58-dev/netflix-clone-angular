@@ -4,6 +4,7 @@ import { HeaderComponent } from 'src/app/core/components/header/header.component
 import { AuthService } from 'src/app/shared/services/auth.service';
 import { MovieService } from 'src/app/shared/services/movie.service';
 import { MovieCarouselComponent} from 'src/app/core/components/movie-carousel/movie-carousel.component';
+import { IVideoContent } from 'src/app/model/video-content.interface';
 
 
 @Component({
@@ -14,8 +15,11 @@ import { MovieCarouselComponent} from 'src/app/core/components/movie-carousel/mo
   imports:[HeaderComponent,BannerComponent,MovieCarouselComponent]
 })
 export class BrowseComponent implements OnInit{
+  popularMovies: IVideoContent[] = [];
     ngOnInit(): void {
-        this.movieService.getMovie().subscribe(resp=>{console.log(resp)});
+        this.movieService.getMovie().subscribe(resp=>{console.log(resp); this.popularMovies=resp.result;
+
+        });
     }
 auth=inject(AuthService);
 movieService=inject(MovieService);

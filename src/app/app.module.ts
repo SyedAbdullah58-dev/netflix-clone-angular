@@ -17,7 +17,7 @@ import { MovieCarouselComponent } from './core/components/movie-carousel/movie-c
   declarations: [
     AppComponent,
     LoginComponent,
-    MovieCarouselComponent,
+
   ],
   imports: [
     BrowserModule,
