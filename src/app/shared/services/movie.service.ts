@@ -23,4 +23,7 @@ export class MovieService{
 getMovie(){
     return this.http.get<any>('https://api.themoviedb.org/3/discover/movie',options);
 }
+  getTvShows() {
+    return this.http.get('https://api.themoviedb.org/3/discover/tv', options)
+  }
 }

@@ -11,20 +11,22 @@ import { HeaderComponent } from './core/components/header/header.component';
 import { BannerComponent } from './core/components/banner/banner.component';
 import { provideHttpClient } from '@angular/common/http';
 import { MovieCarouselComponent } from './core/components/movie-carousel/movie-carousel.component';
+import { DescriptionPipe } from './Pipes/description.pipe';
+import { ImagePipe } from './Pipes/image.pipe';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     RouterOutlet,
     CommonModule,
-
+    DescriptionPipe,
+    ImagePipe,
   ],
   providers: [provideHttpClient()],
   bootstrap: [AppComponent]
