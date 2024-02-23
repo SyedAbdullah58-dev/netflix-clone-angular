@@ -26,4 +26,20 @@ getMovie(){
   getTvShows() {
     return this.http.get('https://api.themoviedb.org/3/discover/tv', options)
   }
+
+  getNowPlayingMovies() {
+    return this.http.get('https://api.themoviedb.org/3/movie/now_playing', options)
+  }
+
+  getPopularMovies() {
+    return this.http.get('https://api.themoviedb.org/3/movie/popular', options)
+  }
+
+  getTopRated() {
+    return this.http.get('https://api.themoviedb.org/3/movie/top_rated', options)
+  }
+
+  getUpcomingMovies() {
+    return this.http.get('https://api.themoviedb.org/3/movie/upcoming', options)
+  }
 }

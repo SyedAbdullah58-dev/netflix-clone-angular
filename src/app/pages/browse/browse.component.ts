@@ -32,8 +32,9 @@ export class BrowseComponent implements OnInit{
   sources = [
     this.movieService.getMovie(),
     this.movieService.getTvShows(),
-
-
+    this.movieService.getNowPlayingMovies(),
+    this.movieService.getUpcomingMovies(),
+    this.movieService.getPopularMovies()
   ];
     ngOnInit(): void {
       forkJoin(this.sources)
@@ -45,8 +46,8 @@ export class BrowseComponent implements OnInit{
         ).subscribe((res:any)=>{
         this.movies = res.movies.results as IVideoContent[];
         this.tvShows = res.tvShows.results as IVideoContent[];
-
-
+        this.nowPlayingMovies = res.nowPlaying.results as IVideoContent[];
+        this.popularMovies = res.popular.results as IVideoContent[];
 
       })
     }
