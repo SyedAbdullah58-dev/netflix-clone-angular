@@ -5,7 +5,8 @@ import { AuthService } from 'src/app/shared/services/auth.service';
 import { MovieService } from 'src/app/shared/services/movie.service';
 import { MovieCarouselComponent} from 'src/app/core/components/movie-carousel/movie-carousel.component';
 import { IVideoContent } from 'src/app/model/video-content.interface';
-import {forkJoin, map } from 'rxjs';
+import {Observable, forkJoin, map } from 'rxjs';
+import { CommonModule } from '@angular/common';
 
 
 @Component({
@@ -13,7 +14,7 @@ import {forkJoin, map } from 'rxjs';
   selector: 'app-browse',
   templateUrl: './browse.component.html',
   styleUrls: ['./browse.component.css'],
-  imports:[HeaderComponent,BannerComponent,MovieCarouselComponent]
+  imports:[HeaderComponent,BannerComponent,MovieCarouselComponent,CommonModule]
 })
 export class BrowseComponent implements OnInit{
   auth=inject(AuthService);
@@ -21,6 +22,8 @@ export class BrowseComponent implements OnInit{
   name=JSON.parse(sessionStorage.getItem("loggedInUser")!).name;
   userProfileImg=JSON.parse(sessionStorage.getItem("loggedInUser")!).picture;
   email=JSON.parse(sessionStorage.getItem("loggedInUser")!).email;
+  bannerDetails=new Observable<any>();
+  bannerVideo=new Observable<any>();
   movies: IVideoContent[] = [];
   tvShows: IVideoContent[] = [];
   ratedMovies: IVideoContent[] = [];
@@ -40,6 +43,8 @@ export class BrowseComponent implements OnInit{
       forkJoin(this.sources)
         .pipe(
           map(([movies, tvShows, ratedMovies, nowPlaying, upcoming, popular, topRated]) => {
+            this.bannerDetails=this.movieService.getBannerDetail(movies.results[0].id);
+            this.bannerVideo = this.movieService.getBannerVideo(movies.results[1].id);
               return {movies, tvShows, ratedMovies, nowPlaying, upcoming, popular, topRated}
             }
           )

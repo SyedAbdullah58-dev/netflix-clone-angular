@@ -42,4 +42,11 @@ getMovie(){
   getUpcomingMovies() {
     return this.http.get('https://api.themoviedb.org/3/movie/upcoming', options)
   }
+
+  getBannerDetail(id: number) {
+    return this.http.get(`https://api.themoviedb.org/3/movie/${id}`, options);
+  }
+  getBannerVideo(id: number) {
+    return this.http.get(`https://api.themoviedb.org/3/movie/${id}/videos`, options);
+  }
 }
