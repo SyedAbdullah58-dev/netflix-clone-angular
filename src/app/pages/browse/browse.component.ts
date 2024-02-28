@@ -43,8 +43,8 @@ export class BrowseComponent implements OnInit{
       forkJoin(this.sources)
         .pipe(
           map(([movies, tvShows, ratedMovies, nowPlaying, upcoming, popular, topRated]) => {
-            this.bannerDetails=this.movieService.getBannerDetail(movies.results[0].id);
-            this.bannerVideo = this.movieService.getBannerVideo(movies.results[1].id);
+            this.bannerDetails=this.movieService.getBannerDetail(movies.results[3].id);
+            this.bannerVideo = this.movieService.getBannerVideo(movies.results[3].id);
               return {movies, tvShows, ratedMovies, nowPlaying, upcoming, popular, topRated}
             }
           )
@@ -53,6 +53,7 @@ export class BrowseComponent implements OnInit{
         this.tvShows = res.tvShows.results as IVideoContent[];
         this.nowPlayingMovies = res.nowPlaying.results as IVideoContent[];
         this.popularMovies = res.popular.results as IVideoContent[];
+        this.upcomingMovies=res.upcomingMovies.result as IVideoContent[];
 
       })
     }
